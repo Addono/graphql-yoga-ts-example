@@ -1,0 +1,9 @@
+{
+  "name": "graphql-yoga-ts-example",
+  "version": "1.0.0",
+  "description": "Example GraphQL server made with GraphQL Yoga and TypeScript.",
+  "main": "index.ts",
+  "author": "Adriaan Knapen <hi@aknapen.nl>",
+  "license": "MIT",
+  "private": false
+}
