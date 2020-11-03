@@ -6,6 +6,10 @@
   "author": "Adriaan Knapen <hi@aknapen.nl>",
   "license": "MIT",
   "private": false,
+  "scripts": {
+    "start": "ts-node index.ts",
+    "dev": "ts-node-dev index.ts"
+  },
   "dependencies": {
     "graphql-yoga": "^1.18.3",
     "ts-node": "^9.0.0"
