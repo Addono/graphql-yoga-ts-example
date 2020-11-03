@@ -17,12 +17,17 @@ const typeDefs = gql`
   }
 `
 
+type User = { id: string, name: string}
+type Users = User[]
+
+const users: Users = []
+
 const server = new GraphQLServer({
   typeDefs,
   resolvers: {
     Query: {
       users: () => {
-        return []
+        return users
       }
     }
   },
