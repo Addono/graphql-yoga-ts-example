@@ -19,7 +19,13 @@ const typeDefs = gql`
 
 const server = new GraphQLServer({
   typeDefs,
-  resolvers: {},
+  resolvers: {
+    Query: {
+      users: () => {
+        return []
+      }
+    }
+  },
 })
 
 server.start({ port: 5000 }, () => console.log('Server is running on http://localhost:5000 🚀'))
