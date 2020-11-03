@@ -19,6 +19,7 @@ const typeDefs = gql`
 
   type Mutation {
     createUser(name: String!): User
+    deleteUser(id: ID!): User
   }
 `
 
@@ -48,6 +49,15 @@ const server = new GraphQLServer({
 
         // Return the newly created user
         return newUser
+      },
+      deleteUser: (_, args) => {
+        // Find the index of where our user is storred in the array
+        const index = users.findIndex((user) => user.id === args.id)
+
+        // Remove the user from the array
+        const [removedUser] = users.splice(index, 1)
+
+        return removedUser
       }
     }
   },
