@@ -4,6 +4,11 @@ import { GraphQLServer } from "graphql-yoga"
 const typeDefs = gql`
   type User {
     id: ID!
+    """
+    The name of this user. 
+    
+    _Note: We can use **Markdown**_ 🎉
+    """
     name: String
   }
 
