@@ -1,5 +1,6 @@
 import gql from "graphql-tag"
 import { GraphQLServer } from "graphql-yoga"
+import { randomInt } from 'crypto';
 
 const typeDefs = gql`
   type User {
@@ -15,6 +16,10 @@ const typeDefs = gql`
   type Query {
     users: [User!]!
   }
+
+  type Mutation {
+    createUser(name: String!): User
+  }
 `
 
 type User = { id: string, name: string}
@@ -28,6 +33,21 @@ const server = new GraphQLServer({
     Query: {
       users: () => {
         return users
+      }
+    },
+    Mutation: {
+      createUser: (_, args) => {
+        // Create our new user
+        const newUser: User = {
+          id: randomInt(10**5).toString(),
+          name: args.name,
+        }
+
+        // Store our new user in memory
+        users.push(newUser)
+
+        // Return the newly created user
+        return newUser
       }
     }
   },
