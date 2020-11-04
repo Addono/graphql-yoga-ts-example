@@ -8,7 +8,8 @@
   "private": false,
   "scripts": {
     "start": "ts-node index.ts",
-    "dev": "ts-node-dev index.ts"
+    "dev": "ts-node-dev index.ts",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "graphql-tag": "^2.11.0",
