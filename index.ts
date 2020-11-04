@@ -1,13 +1,13 @@
-import gql from "graphql-tag"
-import { GraphQLServer } from "graphql-yoga"
-import { randomInt } from 'crypto';
+import gql from "graphql-tag";
+import { GraphQLServer } from "graphql-yoga";
+import { randomInt } from "crypto";
 
 const typeDefs = gql`
   type User {
     id: ID!
     """
-    The name of this user. 
-    
+    The name of this user.
+
     _Note: We can use **Markdown**_ 🎉
     """
     name: String
@@ -22,49 +22,51 @@ const typeDefs = gql`
     createUser(name: String!): User
     deleteUser(id: ID!): User
   }
-`
+`;
 
-type User = { id: string, name: string}
-type Users = User[]
+type User = { id: string; name: string };
+type Users = User[];
 
-const users: Users = []
+const users: Users = [];
 
 const server = new GraphQLServer({
   typeDefs,
   resolvers: {
     Query: {
       users: () => {
-        return users
+        return users;
       },
       user: (_, args) => {
-        return users.find((user) => user.id === args.id)
+        return users.find((user) => user.id === args.id);
       },
     },
     Mutation: {
       createUser: (_, args) => {
         // Create our new user
         const newUser: User = {
-          id: randomInt(10**5).toString(),
+          id: randomInt(10 ** 5).toString(),
           name: args.name,
-        }
+        };
 
         // Store our new user in memory
-        users.push(newUser)
+        users.push(newUser);
 
         // Return the newly created user
-        return newUser
+        return newUser;
       },
       deleteUser: (_, args) => {
         // Find the index of where our user is storred in the array
-        const index = users.findIndex((user) => user.id === args.id)
+        const index = users.findIndex((user) => user.id === args.id);
 
         // Remove the user from the array
-        const [removedUser] = users.splice(index, 1)
+        const [removedUser] = users.splice(index, 1);
 
-        return removedUser
-      }
-    }
+        return removedUser;
+      },
+    },
   },
-})
+});
 
-server.start({ port: 5000 }, () => console.log('Server is running on http://localhost:5000 🚀'))
+server.start({ port: 5000 }, () =>
+  console.log("Server is running on http://localhost:5000 🚀")
+);

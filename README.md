@@ -135,4 +135,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [license-url]: https://github.com/addono/graphql-yoga-ts-example/blob/main/LICENSE
 [test-pipeline-shield]: https://img.shields.io/github/workflow/status/Addono/graphql-yoga-ts-example/Test?style=flat-square&logo=github%20actions
 [test-pipeline-url]: https://github.com/Addono/graphql-yoga-ts-example/actions?query=workflow%3ATest
-
