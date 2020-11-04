@@ -15,6 +15,7 @@ const typeDefs = gql`
 
   type Query {
     users: [User!]!
+    user(id: ID!): User
   }
 
   type Mutation {
@@ -34,7 +35,10 @@ const server = new GraphQLServer({
     Query: {
       users: () => {
         return users
-      }
+      },
+      user: (_, args) => {
+        return users.find((user) => user.id === args.id)
+      },
     },
     Mutation: {
       createUser: (_, args) => {
