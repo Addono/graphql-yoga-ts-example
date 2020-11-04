@@ -5,6 +5,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Test pipeline][test-pipeline-shield]][test-pipeline-url]
 
 <!-- PROJECT LOGO -->
 <br />
@@ -132,3 +133,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-url]: https://github.com/addono/graphql-yoga-ts-example/issues
 [license-shield]: https://img.shields.io/github/license/addono/graphql-yoga-ts-example.svg?style=flat-square
 [license-url]: https://github.com/addono/graphql-yoga-ts-example/blob/master/LICENSE.txt
+[test-pipeline-shield]: https://img.shields.io/github/workflow/status/Addono/graphql-yoga-ts-example/Test?style=flat-square&logo=github%20actions
+[test-pipeline-url]: https://github.com/Addono/graphql-yoga-ts-example/actions?query=workflow%3ATest
+
